@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/laosiji?characterEncoding=utf8&useSSL=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  data:
+    mongodb:
+#      uri: mongodb://root:pass@127.0.0.1:27017/lsj
+#      port: 27017
+#      host: 139.199.86.67
+#      username: root
+#      password: root
+#      database: lsj
+      uri: mongodb://139.199.86.67/laosiji
+  thymeleaf:
+    cache: true
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+#mongodb://root(userName):root(password)@localhost(ip地址):27017(端口号)/gis(collections/数据库)
+server:
+  port: 8080
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.laosiji.movie.model
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <script th:src="@{../js/ckplayer.js}"></script>
+</head>
+<body>
+<a id="movieurls"  th:href="${urlss}"></a>
+<!--<script src="../static/ckplayer.js"></script>-->
+<div id="video" style="width: 100%;height: 100%;"></div>
+<script type="text/javascript">
+    var videoUrl = document.getElementById('movieurls').href;
+    // console.log(videoUrl)
+    // console.log('11111111111111111')
+    //http://localhost:8086/movie/playMovie?mivieSrc=http://cn2.okokyun.com/20171202/f51vgaKD/index.m3u8
+    var videoObject = {
+        container: '#video',//“#”代表容器的ID，“.”或“”代表容器的class
+        variable: 'player',//该属性必需设置，值等于下面的new chplayer()的对象
+        flashplayer:false,//如果强制使用flashplayer则设置成true
+        video:videoUrl,//视频地址
+        crossdomain:'http://cn2.okokyun.com/crossdomain.xml'
+    };
+    var player=new ckplayer(videoObject);
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lao-si-ji.iml" filepath="$PROJECT_DIR$/.idea/modules/lao-si-ji.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lao-si-ji_main.iml" filepath="$PROJECT_DIR$/.idea/modules/lao-si-ji_main.iml" group="lao-si-ji" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lao-si-ji_test.iml" filepath="$PROJECT_DIR$/.idea/modules/lao-si-ji_test.iml" group="lao-si-ji" />
+    </modules>
+  </component>
+</project>
