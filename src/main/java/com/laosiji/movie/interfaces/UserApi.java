@@ -1,10 +1,13 @@
 package com.laosiji.movie.interfaces;
 
 import com.laosiji.movie.base.BaseService;
-import com.laosiji.movie.model.LsjUser;
+import com.laosiji.movie.model.LaosijiUser;
 
 public interface UserApi extends BaseService {
-    boolean isUserExist(String username);
 
-    int saveUser(LsjUser lsjUser);
+//    User valitaUser(String userName) ;
+
+    int RegisterUser(LaosijiUser laosijiUser);
+
+    int RegisterBackUser(LaosijiUser laosijiUser);
 }

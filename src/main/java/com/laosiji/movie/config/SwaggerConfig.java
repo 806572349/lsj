@@ -24,7 +24,7 @@ public class SwaggerConfig {
                 .build();
     }
     private ApiInfo apiInfo() {
-        Contact contact=new Contact("李二狗",
+        Contact contact=new Contact("二狗",
                 "http://www.jianshu.com","");
         return new ApiInfoBuilder()
                 .title("接口文档")

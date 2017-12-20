@@ -7,12 +7,15 @@ import com.laosiji.movie.entity.IMovieInfo;
 import com.laosiji.movie.interfaces.MovieApi;
 import com.laosiji.movie.model.MovieInfo;
 import io.swagger.annotations.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.security.PermitAll;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -48,6 +51,7 @@ public class MovieController extends BaseController {
         return modelMap;
 
     }
+ //日志
 
     //首页
     @ApiOperation(value = "首页",notes = "获取首页信息")
@@ -67,7 +71,26 @@ public class MovieController extends BaseController {
 
         return modelMap;
     }
-
+// region
+/*
+      ┏┛ ┻━━━━━┛ ┻┓
+      ┃　　　　　　 ┃
+      ┃　　　━　　　┃
+      ┃　┳┛　  ┗┳　┃
+      ┃　　　　　　 ┃
+      ┃　　　┻　　　┃
+      ┃　　　　　　 ┃
+      ┗━┓　　　┏━━━┛
+       ┃　　　┃   神兽保佑
+       ┃　　　┃   代码无BUG！
+       ┃　　　┗━━━━━━━━━┓
+       ┃　　　　　　　    ┣┓
+       ┃　　　　         ┏┛
+       ┗━┓ ┓ ┏━━━┳ ┓ ┏━┛
+         ┃ ┫ ┫   ┃ ┫ ┫
+         ┗━┻━┛   ┗━┻━┛
+ */
+// endregion
     //类型
     @ApiOperation(value = "类型",notes = "电影类型信息")
     @ApiImplicitParams({@ApiImplicitParam(name = "type",value = "电影类型",paramType="query",required = true),

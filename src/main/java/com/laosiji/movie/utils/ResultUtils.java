@@ -1,6 +1,5 @@
 package com.laosiji.movie.utils;
 
-import com.laosiji.movie.model.LsjUser;
 import org.springframework.ui.ModelMap;
 
 import java.util.Date;
@@ -25,12 +24,12 @@ public class ResultUtils {
 
     }
 
-    public static LsjUser createUserModelMap(LsjUser lsjUser){
-        lsjUser.setCreateTime(new Date());
-        lsjUser.setPoint(0);
-        lsjUser.setUserLeavl(0);
-        return lsjUser;
-    }
+//    public static LsjUser createUserModelMap(LsjUser lsjUser){
+//        lsjUser.setCreateTime(new Date());
+//        lsjUser.setPoint(0);
+//        lsjUser.setUserLeavl(0);
+//        return lsjUser;
+//    }
 
     /**
      *

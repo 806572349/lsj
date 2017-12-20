@@ -1,0 +1,80 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/laosiji?characterEncoding=utf8&useSSL=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  data:
+    mongodb:
+#      uri: mongodb://root:pass@127.0.0.1:27017/lsj
+      port: 27017
+      host: 139.199.86.67
+      username: laosiji
+      password: laosiji123laosiji
+      database: laosiji
+#      uri: mongodb://139.199.86.67/laosiji
+  thymeleaf:
+    cache: true
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+  jpa:
+    show-sql: true
+
+
+server:
+  port: 8086
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.laosiji.movie.model
+
+security:
+  basic:
+    enabled: true
+  oauth2:
+#    client:
+#      client-id: laosiji
+#      client-secret: laosiji
+#      user-authorization-uri: http://127.0.0.1:8060/oauth/authorize
+#      access-token-uri: http://127.0.0.1:8060/oauth/token
+   resource:
+      jwk:
+        key-set-uri: http://127.0.0.1:8060/oauth/token_key
+      token-info-uri: http://127.0.0.1:8060/oauth/check_token
+      id: oauth2-resource
+
+#security:
+#  oauth2:
+#    client:
+#      access-token-uri: http://localhost:8999/oauth/token
+#      user-authorization-uri: http://localhost:8999/oauth/authorize
+#      client-id: webapp
+#    resource:
+#      user-info-uri: http://localhost:8999/user/info
+#      prefer-token-info: false
+#security:
+#  oauth2:
+#    client:
+#          access-token-uri: http://localhost:8999/oauth/token
+#          user-authorization-uri: http://localhost:8999/oauth/authorize
+#    resource:
+#      id: order-service
+#      user-info-uri: http://localhost:8999/user/info
+#      prefer-token-info: false
+#security:
+#  oauth2:
+#    client:
+#      accessTokenUri: http://localhost:8999/oauth/token
+#      userAuthorizationUri: http://localhost:8999/oauth/authorize
+#      clientId: android
+#      clientSecret: android
+#    resource:
+#      jwt:
+#        keyValue: |
+#          -----BEGIN PUBLIC KEY-----
+#                  laosiji
+#          -----END PUBLIC KEY-----
+#      id: xx
+#      serviceId: ${PREFIX:}resource

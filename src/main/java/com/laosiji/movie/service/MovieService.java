@@ -69,8 +69,9 @@ public class MovieService implements MovieApi {
     }
     @Override
     public  MovieInfo getMovieInfo(String id){
-        Optional<MovieInfo> movieInfo = iMovieInfo.findById(id);
-        MovieInfo movieInfo1 = movieInfo.get();
+//        Optional<MovieInfo> movieInfo = iMovieInfo.findById(id);
+//        MovieInfo movieInfo1 = movieInfo.get();
+        MovieInfo movieInfo1 = iMovieInfo.findOne(id);
         return movieInfo1;
 
 

@@ -12,29 +12,36 @@ import java.util.Map;
 
 public abstract class BaseController {
     /**
-     *
      * @param isSuccess 成功的结果
      * @return
      */
-    public ModelMap getMap(boolean isSuccess){
-        ModelMap map=new ModelMap();
-        if (isSuccess){
-            map.put("code",0);
-            map.put("msg","Success");
+    public ModelMap getMap(boolean isSuccess) {
+        ModelMap map = new ModelMap();
+        if (isSuccess) {
+            map.put("code", 0);
+            map.put("msg", "Success");
             return map;
-        }
-        else {
-            map.put("code",0);
-            map.put("msg","Fail");
+        } else {
+            map.put("code", 0);
+            map.put("msg", "Fail");
             return map;
         }
 
     }
 
+    public ModelMap getFileMap(boolean isSuccess, String Msg) {
+        ModelMap map = new ModelMap();
+        map.put("code", 1);
+        map.put("msg", Msg);
+        return map;
+
+    }
+
+
     @Autowired
     IHeadInfo iHeadInfo;
 
-    public List<HeadInfo> getHeadList(){
+    public List<HeadInfo> getHeadList() {
 //        HeadInfo headInfo=new HeadInfo();
 //        headInfo.setInfoName("齐天大圣孙悟空");
 //        headInfo.setInfoImgUrl("http://img1.gtimg.com/v/pics/hv1/75/32/2249/146249460.jpg");
@@ -44,13 +51,12 @@ public abstract class BaseController {
 //        headInfo2.setInfoImgUrl("http://puui.qpic.cn/tv/0/16300838_1680580/0");
 //        iHeadInfo.insert(headInfo2);
         ArrayList<String> list = new ArrayList<>();
-        Map<String,String>map=new HashMap<>();
+        Map<String, String> map = new HashMap<>();
         List<HeadInfo> iHeadInfoAll = iHeadInfo.findAll();
         return iHeadInfoAll;
 
 
     }
-
 
 
 }

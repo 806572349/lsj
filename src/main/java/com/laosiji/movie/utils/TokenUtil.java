@@ -1,7 +1,6 @@
 package com.laosiji.movie.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.laosiji.movie.model.LsjUser;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -42,25 +41,25 @@ public class TokenUtil {
 	 * 根据用户信息生成TOKEN
 	 * @return String : token
 	 */
-	public static Map<String,String> createToken(LsjUser user, String sideWord)
-	{
-		Map<String, String> uInfo = new HashMap<String, String>();
-		uInfo.put("phoneNumber", user.getPhone());
-		uInfo.put("id", user.getId()+"");
-//		uInfo.put("sinaUuid", user.getSinaUuid());
-		uInfo.put("leavel", user.getUserLeavl()+"");
-		String t = Long.toString(System.currentTimeMillis());
-		uInfo.put("t", t);
-		Map<String, String> token = new HashMap<String, String>();
-		String tokenVal = encode(uInfo,sideWord.replaceAll("\\d", ""));
-//		String key = DigestUtils.md5Hex(tokenVal);
-		//RedisComponent redisComponent =;
-//		redisComponent.set(key, sideWord, 30*24*3600L);
-//		saveTokenKey(key, sideWord);
-		token.put("key", tokenVal);
-		token.put("hash_code", md5(t+Conf.CODE_KEY));
-		return token;
-	}
+//	public static Map<String,String> createToken(LsjUser user, String sideWord)
+//	{
+//		Map<String, String> uInfo = new HashMap<String, String>();
+//		uInfo.put("phoneNumber", user.getPhone());
+//		uInfo.put("id", user.getId()+"");
+////		uInfo.put("sinaUuid", user.getSinaUuid());
+//		uInfo.put("leavel", user.getUserLeavl()+"");
+//		String t = Long.toString(System.currentTimeMillis());
+//		uInfo.put("t", t);
+//		Map<String, String> token = new HashMap<String, String>();
+//		String tokenVal = encode(uInfo,sideWord.replaceAll("\\d", ""));
+////		String key = DigestUtils.md5Hex(tokenVal);
+//		//RedisComponent redisComponent =;
+////		redisComponent.set(key, sideWord, 30*24*3600L);
+////		saveTokenKey(key, sideWord);
+//		token.put("key", tokenVal);
+//		token.put("hash_code", md5(t+Conf.CODE_KEY));
+//		return token;
+//	}
 	
 	/**
 	 * 根据用户信息生成TOKEN
@@ -94,53 +93,53 @@ public class TokenUtil {
 		}
 	}
 	
-	public static LsjUser getUserByToken(String token)
-	{
-		String key = DigestUtils.md5Hex(token);
-		String sideWord = getTokenKey(key);
-		return getUserByToken(token, sideWord);
-	}
-	
+//	public static LsjUser getUserByToken(String token)
+//	{
+//		String key = DigestUtils.md5Hex(token);
+//		String sideWord = getTokenKey(key);
+//		return getUserByToken(token, sideWord);
+//	}
+//
 	
 	/**
 	 * 根据TOKEN获取用户信息
 	 * @param token
 	 * @return 用户信息
 	 */
-	public static LsjUser getUserByToken(String token, String sideWord)
-	{
-		try{
-			if(StringUtils.isEmpty(token) || StringUtils.isEmpty(sideWord) ){
-				return null;
-			}
-			JSONObject jsonObj = (JSONObject)decode(token, sideWord.replaceAll("\\d", ""));
-			if(jsonObj == null){
-				return null;
-			}
-			Long t = Long.valueOf(jsonObj.get("t").toString());
-
-			LsjUser user = new LsjUser();
-			user.setId(Integer.parseInt(jsonObj.get("id").toString()));
-//			user.setSinaUuid(jsonObj.get("sinaUuid").toString());
-			user.setUserLeavl(Integer.parseInt(jsonObj.get("leavel").toString()));
-			 if(jsonObj.get("phoneNumber")!=null)
-				user.setPhone(jsonObj.get("phoneNumber").toString());
-//			if(t + Conf.TOKEN_LEFTTIME < System.currentTimeMillis()){
-//				//TODO 过期
-//				user.setIsExprie(t);;
-////				user.setTokenT(t.toString());
-//			} else {
-//				user.setTimeOut(false);
+//	public static LsjUser getUserByToken(String token, String sideWord)
+//	{
+//		try{
+//			if(StringUtils.isEmpty(token) || StringUtils.isEmpty(sideWord) ){
+//				return null;
 //			}
-			user.setLoginTime(new Date(t));
-			return user;
-		}
-		catch(Exception e){
-			
-			log.error("根据TOKEN获取用户信息异常,token:"+token+",sideWord："+sideWord,e);
-			return null;
-		}
-	}
+//			JSONObject jsonObj = (JSONObject)decode(token, sideWord.replaceAll("\\d", ""));
+//			if(jsonObj == null){
+//				return null;
+//			}
+//			Long t = Long.valueOf(jsonObj.get("t").toString());
+//
+//			LsjUser user = new LsjUser();
+//			user.setId(Integer.parseInt(jsonObj.get("id").toString()));
+////			user.setSinaUuid(jsonObj.get("sinaUuid").toString());
+//			user.setUserLeavl(Integer.parseInt(jsonObj.get("leavel").toString()));
+//			 if(jsonObj.get("phoneNumber")!=null)
+//				user.setPhone(jsonObj.get("phoneNumber").toString());
+////			if(t + Conf.TOKEN_LEFTTIME < System.currentTimeMillis()){
+////				//TODO 过期
+////				user.setIsExprie(t);;
+//////				user.setTokenT(t.toString());
+////			} else {
+////				user.setTimeOut(false);
+////			}
+//			user.setLoginTime(new Date(t));
+//			return user;
+//		}
+//		catch(Exception e){
+//
+//			log.error("根据TOKEN获取用户信息异常,token:"+token+",sideWord："+sideWord,e);
+//			return null;
+//		}
+//	}
 	
 	
 	/**
