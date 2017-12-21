@@ -48,7 +48,7 @@ public class ResourceServersConfig extends ResourceServerConfigurerAdapter{
 //                .and()
 
                 .authorizeRequests().antMatchers("/user/register","/user/registerback","/swagger-ui.html").permitAll()
-                .antMatchers("/movie/indexMovie").access("hasRole('ADMIN')")//授权
+//                .antMatchers("/movie/indexMovie").access("hasRole('ADMIN')")//授权
                 .anyRequest().authenticated();
     }
 }

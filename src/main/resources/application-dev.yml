@@ -6,12 +6,15 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   data:
     mongodb:
-#      uri: mongodb://root:pass@127.0.0.1:27017/lsj
-      port: 27017
-      host: 127.0.0.1
-      username: laosiji
-      password: laosiji123laosiji
-      database: laosiji
+      uri: mongodb://laosiji:123456@127.0.0.1:27017/laosiji
+#      port: 27017
+#      host: 139.199.86.67
+#      username: root
+#      password: 123456
+#      database: laosiji
+
+
+
 #      uri: mongodb://139.199.86.67/laosiji
   thymeleaf:
     cache: true
